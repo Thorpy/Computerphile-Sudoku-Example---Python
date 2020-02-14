@@ -60,7 +60,7 @@ def solve() :
         print("Here is the solved sudoku")
         print(np.matrix(solvedgrid))
         print("\n \n")
-        input("Generate another?")
+        input("Generate another solution?")
     except:
         pass
 
