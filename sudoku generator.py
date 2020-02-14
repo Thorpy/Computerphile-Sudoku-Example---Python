@@ -7,6 +7,7 @@ aArray = []
 grid = []
 emptygrid = []
 solvedgrid = []
+answer = 2
 
 def generate() :
     global aArray
@@ -36,6 +37,7 @@ def solve() :
     global grid
     global solvedgrid
     global emptygrid
+    global answer
     for y in range(9) :
         for x in range(9) :
             if grid[y][x] == 0 :
@@ -50,8 +52,8 @@ def solve() :
         emptygrid = grid
         with np.nditer(emptygrid, op_flags=['readwrite']) as it:
             for cell in it:
-                zeros = rn.randint(0,1)
-                if zeros == 0:
+                zeros = rn.randint(0,answer)
+                if zeros != 0:
                     cell[...] = 0
         print("\n \n")
         print("Here is the generated sudoku")
@@ -65,6 +67,9 @@ def solve() :
         pass
 
 try:
+    print("Enter a number to select a difficulty level")
+    print("The higher the number the more empty spaces")
+    answer = input("Please type a difficulty level: ")
     generate()
     solve()
 except:
